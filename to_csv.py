@@ -5,7 +5,7 @@ with open('primaries.json', 'r') as data:
     data = json.load(data).get('races')
 
 
-with open('results.csv', 'w') as out:
+with open('tmp_results.csv', 'w') as out:
     writer = csv.writer(out)
     row = ['FIPS', 'NAME', 'CLINTON', 'SANDERS',
            'OMALLEY', 'DEM_OTHER', 'TRUMP',
@@ -56,3 +56,5 @@ with open('results.csv', 'w') as out:
                             "{0:.3f}".format(int(row[i + 2]) / denominator)
                             )
                     writer.writerow(row)
+                    
+
