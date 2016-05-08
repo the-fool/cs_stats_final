@@ -1,14 +1,8 @@
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#  setwd("~/workspace/cs280_stats/final_proj")
-#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
+setwd("~/workspace/cs280_stats/final_proj")
 demographics <- read.csv("./results_with_demograph.csv")
 d <- read.csv('results.csv')
+
+
 
 ## Remove candidates who have dropped out
 results.all <- d[-c(5,6,9,11:15)]
@@ -93,13 +87,6 @@ ggplot(data = cor.demographics.dem.long, aes(x=Demographic, y=Correlation, fill=
   scale_y_continuous(breaks=pretty_breaks(n=20))
 
 ggplot(data = cor.demographics.rep.long, aes(x=Demographic, y=Correlation, fill=factor(Candidate))) +
-  geom_bar(width=0.75, stat="identity", position="dodge") +
-  scale_y_continuous(breaks=pretty_breaks(n=20))
-
-## Plot all candidates and demographics
-cor.demographics.all.long <- rbind(cor.demographics.rep.long, cor.demographics.dem.long)
-
-ggplot(data = cor.demographics.all.long, aes(x=Demographic, y=Correlation, fill=factor(Candidate))) +
   geom_bar(width=0.75, stat="identity", position="dodge") +
   scale_y_continuous(breaks=pretty_breaks(n=20))
 
